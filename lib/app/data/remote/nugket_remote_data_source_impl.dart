@@ -1,5 +1,5 @@
 import 'package:fish_nugket_warehourse/app/core/base/base_remote_source.dart';
-import 'package:fish_nugket_warehourse/app/data/model/location.dart';
+import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/data/model/warehouse_response.dart';
 import 'package:fish_nugket_warehourse/app/data/remote/nugket_remote_data_source.dart';
 import 'package:fish_nugket_warehourse/app/network/dio_provider.dart';

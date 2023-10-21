@@ -1,4 +1,4 @@
-import 'package:fish_nugket_warehourse/app/data/model/location.dart';
+import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/data/model/models.dart';
 import 'package:fish_nugket_warehourse/app/data/remote/nugket_remote_data_source.dart';
 import 'package:fish_nugket_warehourse/app/data/repository/nugket_repository.dart';
