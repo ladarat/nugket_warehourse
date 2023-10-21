@@ -4,7 +4,7 @@ import 'package:fish_nugket_warehourse/app/data/model/warehouse_response.dart';
 import 'package:fish_nugket_warehourse/app/data/remote/nugket_remote_data_source.dart';
 import 'package:fish_nugket_warehourse/app/network/dio_provider.dart';
 
-class GithubRemoteDataSourceImpl extends BaseRemoteSource 
+class NugketRemoteDataSourceImpl extends BaseRemoteSource 
 implements NugketRemoteDataSource {
 
   @override
