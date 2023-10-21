@@ -1,7 +1,9 @@
+import 'package:fish_nugket_warehourse/app/binding/InitialBinding.dart';
 import 'package:fish_nugket_warehourse/flavors/build_config.dart';
 import 'package:fish_nugket_warehourse/flavors/env_conflig.dart';
 import 'package:fish_nugket_warehourse/flavors/environment.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   EnvConfig devConfig = EnvConfig(
@@ -23,7 +25,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
+      initialBinding: InitialBinding(),
       home: Scaffold(
         body: Center(
           child: Text('Hello World!'),
