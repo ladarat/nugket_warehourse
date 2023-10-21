@@ -1,3 +1,4 @@
+import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/controllers/nugket_search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,14 @@ class NugketListView extends StatefulWidget {
 
 class _NugketListPageState extends State<NugketListView> {
   final nugketSearchController = Get.put(NugketSearchController());
+
+    @override
+  void initState() {
+    super.initState();
+    nugketSearchController.fetchNugkets(
+      const LocationRequest(count: 10, latitude: 13.715640648070432, longitude: 100.58632593601942),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
