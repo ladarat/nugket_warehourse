@@ -10,17 +10,15 @@ class NugketSearchController extends GetxController {
 
   final nugketDetails = <NugketDetailUiData>[].obs;
 
-  Future<List<NugketDetailUiData>> searchNugket(
-      LocationRequest locationRequest) async {
+  void searchNugket(LocationRequest locationRequest) async {
     final result = await _nugketRepository.searchNugketNearBy(locationRequest);
-
-    return convertToNugketDetailUiData(result);
+    convertToNugketDetailUiData(result);
   }
 
-  List<NugketDetailUiData> convertToNugketDetailUiData(
-      WarehouseResponse response) {
+  void convertToNugketDetailUiData(WarehouseResponse response) {
+    final _nugketDetails = <NugketDetailUiData>[];
     for (var store in response.data.warehouses.warehouseStores) {
-      nugketDetails.add(
+      _nugketDetails.add(
         NugketDetailUiData(
           closeTime: store.closeTime,
           distance: store.distance,
@@ -30,6 +28,7 @@ class NugketSearchController extends GetxController {
         ),
       );
     }
-    return nugketDetails;
+
+    nugketDetails.addAll(_nugketDetails);
   }
 }
