@@ -40,7 +40,7 @@ class WarehouseStore {
     String cd16;
     String cd18;
     int isNonehub;
-    dynamic expressDeliveryRange;
+    int expressDeliveryRange;
     String cd6;
     String cd15;
     String cd20;
@@ -100,7 +100,7 @@ class WarehouseStore {
     });
 
     factory WarehouseStore.fromJson(Map<String, dynamic> json) => WarehouseStore(
-        homeDeliveryRange: json["home_delivery_range"],
+        homeDeliveryRange: json['home_delivery_range'] == null ? 0.0 : json['home_delivery_range'].toDouble(),
         closeTime: json["close_time"],
         cd2: json["cd2"],
         warehouseTypeTh: json["warehouse_type_th"],
@@ -141,7 +141,8 @@ class WarehouseStore {
         cd16: json["cd16"],
         cd18: json["cd18"],
         isNonehub: json["is_nonehub"],
-        expressDeliveryRange: json["express_delivery_range"],
+        expressDeliveryRange: json['express_delivery_range'] == null ? 0.0 : json['express_delivery_range'].toDouble(),
+
         cd6: json["cd6"],
         cd15: json["cd15"],
         cd20: json["cd20"],
