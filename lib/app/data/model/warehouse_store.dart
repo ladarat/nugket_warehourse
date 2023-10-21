@@ -40,7 +40,7 @@ class WarehouseStore {
     String cd16;
     String cd18;
     int isNonehub;
-    int expressDeliveryRange;
+    dynamic expressDeliveryRange;
     String cd6;
     String cd15;
     String cd20;
