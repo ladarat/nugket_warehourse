@@ -1,4 +1,5 @@
 import 'package:fish_nugket_warehourse/app/binding/InitialBinding.dart';
+import 'package:fish_nugket_warehourse/app/routes/app_pages.dart';
 import 'package:fish_nugket_warehourse/flavors/build_config.dart';
 import 'package:fish_nugket_warehourse/flavors/env_conflig.dart';
 import 'package:fish_nugket_warehourse/flavors/environment.dart';
@@ -26,12 +27,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AppPages.INITIAL,
       initialBinding: InitialBinding(),
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      getPages: AppPages.routes,
+      home: const Placeholder(),
     );
   }
 }
