@@ -1,5 +1,5 @@
-class Location {
-  const Location({
+class LocationRequest {
+  const LocationRequest({
     required this.count,
     required this.latitude,
     required this.longitude,
