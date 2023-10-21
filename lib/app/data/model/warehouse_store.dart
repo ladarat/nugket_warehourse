@@ -142,7 +142,6 @@ class WarehouseStore {
         cd18: json["cd18"],
         isNonehub: json["is_nonehub"],
         expressDeliveryRange: json['express_delivery_range'] == null ? 0.0 : json['express_delivery_range'].toDouble(),
-
         cd6: json["cd6"],
         cd15: json["cd15"],
         cd20: json["cd20"],
