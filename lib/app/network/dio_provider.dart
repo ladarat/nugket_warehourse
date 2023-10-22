@@ -7,8 +7,6 @@ class DioProvider {
 
   static Dio? _instance;
 
-  static const int _maxLineWidth = 90;
-
   static final BaseOptions _options = BaseOptions(
     baseUrl: baseUrl,
     connectTimeout: Duration(milliseconds: 6000),
