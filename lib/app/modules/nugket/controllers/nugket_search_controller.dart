@@ -1,5 +1,4 @@
 import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
-import 'package:fish_nugket_warehourse/app/data/model/warehouse_response.dart';
 import 'package:fish_nugket_warehourse/app/data/model/warehouse_store.dart';
 import 'package:fish_nugket_warehourse/app/data/repository/nugket_repository.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
