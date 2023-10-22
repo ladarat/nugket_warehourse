@@ -32,6 +32,7 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                     width: widthScreenSize / 3,
                     child: TextFormField(
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
+                      style: const TextStyle(fontSize: 14),
                       controller: latitudeController,
                       decoration: const InputDecoration(
                         labelText: "Latitude",
@@ -47,6 +48,7 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                     width: widthScreenSize / 3,
                     child: TextFormField(
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
+                      style: const TextStyle(fontSize: 14),
                       controller: longitudeController,
                       decoration: const InputDecoration(
                         labelText: "Latitude",

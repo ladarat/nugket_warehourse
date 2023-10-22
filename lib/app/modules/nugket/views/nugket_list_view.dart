@@ -1,5 +1,5 @@
 import 'package:fish_nugket_warehourse/app/modules/nugket/controllers/nugket_search_controller.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugket/views/widgets/warehouse_card_Item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,53 +51,9 @@ class NugKetListView extends StatelessWidget {
               itemCount: nugketSearchController.nugketDetails.length,
               itemBuilder: (context, index) {
                 final nugket = nugketSearchController.nugketDetails[index];
-                return CadItem(nugketDetailUiData: nugket);
+                return WarehouseCardItem(nugketDetailUiData: nugket);
               },
             ),
-    );
-  }
-}
-
-class CadItem extends StatelessWidget {
-  final NugketDetailUiData nugketDetailUiData;
-
-  const CadItem({super.key, required this.nugketDetailUiData});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      clipBehavior: Clip.antiAlias,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 42),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(nugketDetailUiData.warehouseNameTh,
-                style: const TextStyle(fontSize: 20)),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Text(
-                  '${nugketDetailUiData.distance.toStringAsFixed(2)} กม.',
-                  style: TextStyle(
-                      color: Colors.black.withOpacity(0.6), fontSize: 16),
-                ),
-                const SizedBox(width: 16),
-                const Icon(Icons.access_time, color: Colors.green),
-                const SizedBox(width: 16),
-                Text(
-                  'เปิดให้บริการ ${nugketDetailUiData.openTime} ถึง ${nugketDetailUiData.closeTime}',
-                  style: TextStyle(
-                      color: Colors.black.withOpacity(0.6), fontSize: 16),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
