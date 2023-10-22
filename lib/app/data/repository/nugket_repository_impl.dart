@@ -9,7 +9,7 @@ class NugketRepositoryImpl implements NugketRepository {
       Get.find(tag: (NugketRemoteDataSource).toString());
 
   @override
-  Future<WarehouseResponse> searchNugketNearBy(
+  Future<WarehouseResponse?>? searchNugketNearBy(
       LocationRequest locationRequest) {
     return _remoteSource.searchNugketNearBy(locationRequest);
   }
