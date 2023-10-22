@@ -1,5 +1,5 @@
 import 'package:fish_nugket_warehourse/app/modules/nugket/controllers/nugket_search_controller.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/views/widgets/warehouse_card_Item.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugket/views/widgets/warehouse_card_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
