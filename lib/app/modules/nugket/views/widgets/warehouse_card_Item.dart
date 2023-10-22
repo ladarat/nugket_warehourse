@@ -1,3 +1,4 @@
+import 'package:fish_nugket_warehourse/app/core/values/app_theme.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
 import 'package:flutter/material.dart';
 
@@ -25,16 +26,14 @@ class WarehouseCardItem extends StatelessWidget {
               children: [
                 Text(
                   '${nugketDetailUiData.distance.toStringAsFixed(2)} กม.',
-                  style: TextStyle(
-                      color: Colors.black.withOpacity(0.6), fontSize: 12),
+                 style: greenTextStyle.apply(fontStyle: FontStyle.normal),
                 ),
                 const SizedBox(width: 4),
                 const Icon(Icons.access_time, color: Colors.green, size: 12,),
                 const SizedBox(width: 2),
                 Text(
                   'เปิดให้บริการ ${nugketDetailUiData.openTime} ถึง ${nugketDetailUiData.closeTime}',
-                  style: TextStyle(
-                      color: Colors.black.withOpacity(0.6), fontSize: 12),
+                  style: greyDarkTextStyle,
                 ),
               ],
             ),

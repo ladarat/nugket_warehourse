@@ -24,7 +24,7 @@ class _NugketListPageState extends State<NugketListView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Nugket MVVM with GetX and Dio'),
+          title: const Text('Nugget MVVM with GetX and Dio'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(48),
@@ -46,7 +46,14 @@ class NugKetListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => nugketSearchController.isLoading
-          ? const CircularProgressIndicator()
+          ? const SizedBox(
+              height: 20,
+              child: Center(
+                child: Expanded(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            )
           : ListView.builder(
               itemCount: nugketSearchController.nugketDetails.length,
               itemBuilder: (context, index) {
