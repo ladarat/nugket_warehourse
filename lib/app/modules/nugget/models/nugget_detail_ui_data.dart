@@ -1,11 +1,11 @@
-class NugketDetailUiData {
+class NuggetDetailUiData {
   double distance;
   String closeTime;
   String openTime;
   String warehouseNameEn;
   String warehouseNameTh;
 
-    NugketDetailUiData({
+    NuggetDetailUiData({
         required this.closeTime,
         required this.distance,
          required this.openTime,
@@ -13,7 +13,7 @@ class NugketDetailUiData {
         required this.warehouseNameTh,
     });
 
-    factory NugketDetailUiData.fromJson(Map<String, dynamic> json) => NugketDetailUiData(
+    factory NuggetDetailUiData.fromJson(Map<String, dynamic> json) => NuggetDetailUiData(
         closeTime: json["close_time"],
          distance: json["distance"]?.toDouble(),
          openTime: json["open_time"],

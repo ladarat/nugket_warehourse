@@ -1,11 +1,11 @@
-import 'package:fish_nugket_warehourse/app/modules/nugket/views/widgets/warehouse_card_Item.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/views/widgets/warehouse_card_Item.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/models/nugget_detail_ui_data.dart';
 import 'package:get/get.dart';
 
 void main() {
   testWidgets('WarehouseCardItem should render correctly', (WidgetTester tester) async {
-    final nugketDetailUiData = NugketDetailUiData(
+    final nuggetDetailUiData = NuggetDetailUiData(
       warehouseNameTh: 'นักเกทปลา เอกมัย อิอิ',
       distance: 5.0,
       openTime: '09:00',
@@ -14,7 +14,7 @@ void main() {
     );
 
     await tester.pumpWidget(GetMaterialApp(
-      home: WarehouseCardItem(nugketDetailUiData: nugketDetailUiData),
+      home: WarehouseCardItem(nuggetDetailUiData: nuggetDetailUiData),
     ));
 
     expect(find.text('นักเกทปลา เอกมัย อิอิ'), findsOneWidget);

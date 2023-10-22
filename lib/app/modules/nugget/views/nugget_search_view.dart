@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class NugketSearchView extends StatefulWidget {
-  const NugketSearchView({super.key});
+class NuggetSearchView extends StatefulWidget {
+  const NuggetSearchView({super.key});
 
   @override
-  State<NugketSearchView> createState() => _NugkeSearchPageState();
+  State<NuggetSearchView> createState() => _NuggeSearchPageState();
 }
 
-class _NugkeSearchPageState extends State<NugketSearchView> {
+class _NuggeSearchPageState extends State<NuggetSearchView> {
   final latitudeController = TextEditingController(text: '13.715640648070432');
   final longitudeController = TextEditingController(text: '100.58632593601942');
 
@@ -31,7 +31,10 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                   SizedBox(
                     width: widthScreenSize / 3,
                     child: TextFormField(
-                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r'(^\d*\.?\d*)'))
+                      ],
                       style: const TextStyle(fontSize: 14),
                       controller: latitudeController,
                       decoration: const InputDecoration(
@@ -47,7 +50,10 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                   SizedBox(
                     width: widthScreenSize / 3,
                     child: TextFormField(
-                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r'(^\d*\.?\d*)'))
+                      ],
                       style: const TextStyle(fontSize: 14),
                       controller: longitudeController,
                       decoration: const InputDecoration(

@@ -1,13 +1,13 @@
-import 'package:fish_nugket_warehourse/app/data/repository/nugket_repository_impl.dart';
+import 'package:fish_nugket_warehourse/app/data/repository/nugget_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/data/model/models.dart';
-import 'package:fish_nugket_warehourse/app/data/remote/nugket_remote_data_source.dart';
+import 'package:fish_nugket_warehourse/app/data/remote/nugget_remote_data_source.dart';
 import 'package:get/get.dart';
 
 class MockNugketRemoteDataSource extends Mock
-    implements NugketRemoteDataSource {}
+    implements NuggetRemoteDataSource {}
 
 void main() {
   late NugketRepositoryImpl repository;
@@ -15,8 +15,8 @@ void main() {
 
   setUp(() {
     mockRemoteDataSource = MockNugketRemoteDataSource();
-    Get.put<NugketRemoteDataSource>(mockRemoteDataSource,
-        tag: (NugketRemoteDataSource).toString());
+    Get.put<NuggetRemoteDataSource>(mockRemoteDataSource,
+        tag: (NuggetRemoteDataSource).toString());
 
     repository = NugketRepositoryImpl();
   });
@@ -132,13 +132,13 @@ void main() {
         }
       }); // Add expected response here
 
-      when(mockRemoteDataSource.searchNugketNearBy(locationRequest))
-          .thenAnswer((_) async => Future<WarehouseResponse>.value(expectedResponse));
+      when(mockRemoteDataSource.searchNuggetNearBy(locationRequest)).thenAnswer(
+          (_) async => Future<WarehouseResponse>.value(expectedResponse));
 
-      final result = await repository.searchNugketNearBy(locationRequest);
+      final result = await repository.searchNuggetNearBy(locationRequest);
 
       expect(result, equals(expectedResponse));
-      verify(mockRemoteDataSource.searchNugketNearBy(locationRequest));
+      verify(mockRemoteDataSource.searchNuggetNearBy(locationRequest));
     });
   });
 }

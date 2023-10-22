@@ -1,11 +1,11 @@
 import 'package:fish_nugket_warehourse/app/core/values/app_theme.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/models/nugget_detail_ui_data.dart';
 import 'package:flutter/material.dart';
 
 class WarehouseCardItem extends StatelessWidget {
-  final NugketDetailUiData nugketDetailUiData;
+  final NuggetDetailUiData nuggetDetailUiData;
 
-  const WarehouseCardItem({super.key, required this.nugketDetailUiData});
+  const WarehouseCardItem({super.key, required this.nuggetDetailUiData});
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +19,24 @@ class WarehouseCardItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(nugketDetailUiData.warehouseNameTh,
+            Text(nuggetDetailUiData.warehouseNameTh,
                 style: const TextStyle(fontSize: 14)),
             const SizedBox(height: 8),
             Row(
               children: [
                 Text(
-                  '${nugketDetailUiData.distance.toStringAsFixed(2)} กม.',
-                 style: greenTextStyle.apply(fontStyle: FontStyle.normal),
+                  '${nuggetDetailUiData.distance.toStringAsFixed(2)} กม.',
+                  style: greenTextStyle.apply(fontStyle: FontStyle.normal),
                 ),
                 const SizedBox(width: 4),
-                const Icon(Icons.access_time, color: Colors.green, size: 12,),
+                const Icon(
+                  Icons.access_time,
+                  color: Colors.green,
+                  size: 12,
+                ),
                 const SizedBox(width: 2),
                 Text(
-                  'เปิดให้บริการ ${nugketDetailUiData.openTime} ถึง ${nugketDetailUiData.closeTime}',
+                  'เปิดให้บริการ ${nuggetDetailUiData.openTime} ถึง ${nuggetDetailUiData.closeTime}',
                   style: greyDarkTextStyle,
                 ),
               ],

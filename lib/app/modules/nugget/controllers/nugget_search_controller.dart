@@ -1,24 +1,24 @@
 import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/data/model/warehouse_store.dart';
-import 'package:fish_nugket_warehourse/app/data/repository/nugket_repository.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
+import 'package:fish_nugket_warehourse/app/data/repository/nugget_repository.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/models/nugget_detail_ui_data.dart';
 import 'package:fish_nugket_warehourse/app/network/exceptions/app_exception.dart';
 import 'package:get/get.dart';
 
-class NugketSearchController extends GetxController {
-  NugketRepository _nugketRepository =
-      Get.find(tag: (NugketRepository).toString());
+class NuggetSearchController extends GetxController {
+  NuggetRepository _nugketRepository =
+      Get.find(tag: (NuggetRepository).toString());
 
   final _isLoading = false.obs;
-  final List<NugketDetailUiData> _nugketDetails = <NugketDetailUiData>[].obs;
+  final List<NuggetDetailUiData> _nugketDetails = <NuggetDetailUiData>[].obs;
 
   bool get isLoading => _isLoading.value;
 
-  List<NugketDetailUiData> get nugketDetails => _nugketDetails;
+  List<NuggetDetailUiData> get nugketDetails => _nugketDetails;
 
   set setIsLoading(bool isLoading) => _isLoading(isLoading);
 
-  set setNugketDetails(List<NugketDetailUiData> nugketDetailUiDataList) =>
+  set setNugketDetails(List<NuggetDetailUiData> nugketDetailUiDataList) =>
       _nugketDetails.addAll(nugketDetailUiDataList);
 
   Future<void> fetchNugkets(LocationRequest? locationRequest) async {
@@ -28,9 +28,10 @@ class NugketSearchController extends GetxController {
     try {
       _isLoading(true);
       final result =
-          await _nugketRepository.searchNugketNearBy(locationRequest);
+          await _nugketRepository.searchNuggetNearBy(locationRequest);
       print(result);
-      convertToNugketDetailUiData(result?.data.warehouses.warehouseStores ?? []);
+      convertToNugketDetailUiData(
+          result?.data.warehouses.warehouseStores ?? []);
     } on AppException catch (e) {
       print('AppException ===>${e.message}');
     } finally {
@@ -39,11 +40,11 @@ class NugketSearchController extends GetxController {
   }
 
   void convertToNugketDetailUiData(List<WarehouseStore> stores) {
-    final _nugketDetailList = <NugketDetailUiData>[];
-    
+    final _nugketDetailList = <NuggetDetailUiData>[];
+
     for (var store in stores) {
       _nugketDetails.add(
-        NugketDetailUiData(
+        NuggetDetailUiData(
           closeTime: parseAndFormatTime(input: store.closeTime),
           openTime: parseAndFormatTime(input: store.openTime),
           distance: store.distance,

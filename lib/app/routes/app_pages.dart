@@ -1,6 +1,6 @@
-import 'package:fish_nugket_warehourse/app/modules/nugket/bindings/nugket_binding.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/views/nugket_list_view.dart';
-import 'package:fish_nugket_warehourse/app/modules/nugket/views/nugket_search_view.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/bindings/nugget_binding.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/views/nugget_list_view.dart';
+import 'package:fish_nugket_warehourse/app/modules/nugget/views/nugget_search_view.dart';
 import 'package:fish_nugket_warehourse/app/modules/splash/views/splash_view.dart';
 import 'package:get/get.dart';
 
@@ -16,12 +16,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => NugketSearchView(),
+      page: () => NuggetSearchView(),
       binding: NugketBinding(),
     ),
     GetPage(
       name: _Paths.LIST,
-      page: () => NugketListView(),
+      page: () => NuggetMainListView(),
       binding: NugketBinding(),
     ),
   ];
