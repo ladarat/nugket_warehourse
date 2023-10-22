@@ -1,5 +1,5 @@
 class WarehouseStore {
-    int homeDeliveryRange;
+    double homeDeliveryRange;
     String closeTime;
     String cd2;
     String warehouseTypeTh;
@@ -40,7 +40,7 @@ class WarehouseStore {
     String cd16;
     String cd18;
     int isNonehub;
-    int expressDeliveryRange;
+    double expressDeliveryRange;
     String cd6;
     String cd15;
     String cd20;
