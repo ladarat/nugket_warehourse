@@ -17,6 +17,7 @@ implements NugketRemoteDataSource {
       return callApiWithErrorParser(dioCall)
           .then((response) => WarehouseResponse.fromJson(response.data));
     } catch (e) {
+      print('searchNugketNearBy ==> $e');
       rethrow;
     }
 
