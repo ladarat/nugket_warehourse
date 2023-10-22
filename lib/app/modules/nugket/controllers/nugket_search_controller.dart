@@ -77,7 +77,6 @@ class NugketSearchController extends GetxController {
 
     int hours = int.tryParse(timeParts[0]) ?? 0;
     int minutes = int.tryParse(timeParts[1]) ?? 0;
-    int seconds = int.tryParse(timeParts[2]) ?? 0;
 
     String formattedTime =
         '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
