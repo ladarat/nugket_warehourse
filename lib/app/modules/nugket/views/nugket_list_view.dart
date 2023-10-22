@@ -1,4 +1,3 @@
-import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/controllers/nugket_search_controller.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
 import 'package:flutter/material.dart';
