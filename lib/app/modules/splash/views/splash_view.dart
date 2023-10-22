@@ -13,7 +13,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 2000)).then((value) => Get.toNamed(Routes.HOME));
+    Future.delayed(const Duration(milliseconds: 2000)).then((value) => Get.offAllNamed(Routes.HOME));
   }
 
   @override
