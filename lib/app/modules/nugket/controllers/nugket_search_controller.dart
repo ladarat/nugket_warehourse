@@ -1,5 +1,6 @@
 import 'package:fish_nugket_warehourse/app/data/model/location_request.dart';
 import 'package:fish_nugket_warehourse/app/data/model/warehouse_response.dart';
+import 'package:fish_nugket_warehourse/app/data/model/warehouse_store.dart';
 import 'package:fish_nugket_warehourse/app/data/repository/nugket_repository.dart';
 import 'package:fish_nugket_warehourse/app/modules/nugket/models/nugket_detail_ui_data.dart';
 import 'package:fish_nugket_warehourse/app/network/exceptions/app_exception.dart';
@@ -30,7 +31,7 @@ class NugketSearchController extends GetxController {
       final result =
           await _nugketRepository.searchNugketNearBy(locationRequest);
       print(result);
-      convertToNugketDetailUiData(result);
+      convertToNugketDetailUiData(result?.data.warehouses.warehouseStores ?? []);
     } on AppException catch (e) {
       print('AppException ===>${e.message}');
     } finally {
@@ -38,9 +39,10 @@ class NugketSearchController extends GetxController {
     }
   }
 
-  void convertToNugketDetailUiData(WarehouseResponse response) {
+  void convertToNugketDetailUiData(List<WarehouseStore> stores) {
     final _nugketDetailList = <NugketDetailUiData>[];
-    for (var store in response.data.warehouses.warehouseStores) {
+    
+    for (var store in stores) {
       _nugketDetails.add(
         NugketDetailUiData(
           closeTime: parseAndFormatTime(input: store.closeTime),
