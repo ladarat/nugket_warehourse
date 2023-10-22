@@ -17,23 +17,21 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
 
   @override
   Widget build(BuildContext context) {
+    var widthScreenSize = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Nugket MVVM with GetX and Dio'),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(48),
+          padding: EdgeInsets.all(widthScreenSize * 0.04),
           child: Column(
             children: [
               Row(
                 children: [
                   SizedBox(
-                    width: 200,
+                    width: widthScreenSize / 3,
                     child: TextFormField(
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(
-                            RegExp(r'(^\d*\.?\d*)'))
-                      ],
+                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                       controller: latitudeController,
                       decoration: const InputDecoration(
                         labelText: "Latitude",
@@ -44,14 +42,11 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: widthScreenSize * 0.04),
                   SizedBox(
-                    width: 200,
+                    width: widthScreenSize / 3,
                     child: TextFormField(
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(
-                            RegExp(r'(^\d*\.?\d*)'))
-                      ],
+                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                       controller: longitudeController,
                       decoration: const InputDecoration(
                         labelText: "Latitude",
@@ -62,17 +57,20 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: widthScreenSize * 0.04),
                   ElevatedButton(
                     onPressed: () {
                       final latitude = latitudeController.text;
                       final longitude = longitudeController.text;
                       if (latitude.isNotEmpty && longitude.isNotEmpty) {
-                          Get.toNamed(Routes.LIST, arguments: LocationRequest(
+                        Get.toNamed(
+                          Routes.LIST,
+                          arguments: LocationRequest(
                             count: 300,
                             latitude: double.parse(latitude),
                             longitude: double.parse(longitude),
-                          ),);
+                          ),
+                        );
                       }
                     }, // Function to call when the button is pressed
                     child: const Text('ค้นหา'),
