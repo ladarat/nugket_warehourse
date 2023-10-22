@@ -17,9 +17,7 @@ class _NugketListPageState extends State<NugketListView> {
   @override
   void initState() {
     super.initState();
-    final arg = Get.arguments();
-    print(" argggg : ${arg}");
-    final locationSearch = LocationRequest.fromJson(arg);
+    final locationSearch = Get.arguments;
     nugketSearchController.fetchNugkets(locationSearch);
   }
 

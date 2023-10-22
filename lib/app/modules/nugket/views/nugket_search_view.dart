@@ -72,7 +72,7 @@ class _NugkeSearchPageState extends State<NugketSearchView> {
                             count: 300,
                             latitude: double.parse(latitude),
                             longitude: double.parse(longitude),
-                          ).toJson(),);
+                          ),);
                       }
                     }, // Function to call when the button is pressed
                     child: const Text('ค้นหา'),
