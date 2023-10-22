@@ -7,6 +7,7 @@ class RemoteSourceBindings implements Bindings {
   void dependencies() {
     Get.lazyPut<NugketRemoteDataSource>(
       () => NugketRemoteDataSourceImpl(),
+      fenix: true,
       tag: (NugketRemoteDataSource).toString(),
     );
   }

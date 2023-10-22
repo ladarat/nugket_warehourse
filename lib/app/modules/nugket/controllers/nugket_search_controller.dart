@@ -6,7 +6,8 @@ import 'package:fish_nugket_warehourse/app/network/exceptions/app_exception.dart
 import 'package:get/get.dart';
 
 class NugketSearchController extends GetxController {
-  NugketRepository _nugketRepository = Get.find(tag: (NugketRepository).toString());
+  NugketRepository _nugketRepository =
+      Get.find(tag: (NugketRepository).toString());
 
   final _isLoading = false.obs;
   final List<NugketDetailUiData> _nugketDetails = <NugketDetailUiData>[].obs;
@@ -20,10 +21,14 @@ class NugketSearchController extends GetxController {
   set setNugketDetails(List<NugketDetailUiData> nugketDetailUiDataList) =>
       _nugketDetails.addAll(nugketDetailUiDataList);
 
-  Future<void> fetchNugkets(LocationRequest locationRequest) async {
+  Future<void> fetchNugkets(LocationRequest? locationRequest) async {
+    if (locationRequest == null) {
+      return;
+    }
     try {
       _isLoading(true);
-      final result = await _nugketRepository.searchNugketNearBy(locationRequest);
+      final result =
+          await _nugketRepository.searchNugketNearBy(locationRequest);
       print(result);
       convertToNugketDetailUiData(result);
     } on AppException catch (e) {
@@ -74,7 +79,8 @@ class NugketSearchController extends GetxController {
     int minutes = int.tryParse(timeParts[1]) ?? 0;
     int seconds = int.tryParse(timeParts[2]) ?? 0;
 
-    String formattedTime = '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
+    String formattedTime =
+        '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
 
     return formattedTime;
   }

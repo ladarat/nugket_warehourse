@@ -7,6 +7,7 @@ class RepositoryBindings implements Bindings {
   void dependencies() {
     Get.lazyPut<NugketRepository>(
       () => NugketRepositoryImpl(),
+      fenix: true,
       tag: (NugketRepository).toString(),
     );
   }
