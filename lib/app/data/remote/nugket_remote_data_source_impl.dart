@@ -8,7 +8,7 @@ class NugketRemoteDataSourceImpl extends BaseRemoteSource
 implements NugketRemoteDataSource {
 
   @override
-  Future<WarehouseResponse> searchNugketNearBy(LocationRequest locationRequest) {
+  Future<WarehouseResponse>? searchNugketNearBy(LocationRequest locationRequest) {
 
     var endpoint = "${DioProvider.baseUrl}/v2/warehouses";
     var dioCall = dioClient.post(endpoint, data: locationRequest.toJson());
