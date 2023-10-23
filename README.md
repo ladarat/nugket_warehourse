@@ -36,8 +36,15 @@ iii. เวลาเปิดปิด
 
 
 การเช็ค unit test coverage
-
 <img width="1418" alt="Screen Shot 2023-10-23 at 8 34 13 AM" src="https://github.com/ladarat/nugket_warehourse/assets/12799910/117f8631-9723-43aa-8c4d-b627cd7f1580">
 
-coverage/html/index.html
+# Generate `coverage/lcov.info` file
+flutter test --coverage
+# Generate HTML report
+# Note: on macOS you need to have lcov installed on your system (`brew install lcov`) to use this:
+genhtml coverage/lcov.info -o coverage/html
+# Open the report
+open coverage/html/index.html
+
+
 
