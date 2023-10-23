@@ -33,4 +33,11 @@ iii. เวลาเปิดปิด
    - เพิ่มเติมแนะนำให้โจทย์เป็น searchView กับ listView อยู่หน้าเดียวกันเพราะจะสะดวกต่อผู้ใช้งาน และอาจจะให้ค้นด้วย keyword ชื่ิอสถานที่และ get lat,long auto search
    - ตัวอย่างยังทำไม่เสร็จอยู่ที่ branch enhance-proposition1-sub3
 
-A new Flutter project.
+
+
+การเช็ค unit test coverage
+
+<img width="1418" alt="Screen Shot 2023-10-23 at 8 34 13 AM" src="https://github.com/ladarat/nugket_warehourse/assets/12799910/117f8631-9723-43aa-8c4d-b627cd7f1580">
+
+coverage/html/index.html
+
