@@ -18,16 +18,23 @@ d. จง เขียนunittest
 2. จง สร้างsceneที่น Latitude และ Longitude จากหน้าแรกมาใช้ในการแสดงผลดังต่อไปนี้
 a. จง design โดยใช้ MVVM
 b. จง น Latitude และ Longitudeมาใช้ในการ request ไปยัง API ตาม cURL นี้
+```
 curl —location --request POST 'https://openapi.bigc-cs.com/composite/v2/warehouses'
-\
---header 'Content-Type: application/json' \
+--header 'Content-Type: application/json'
 --data '{"latitude": 13.715640648070432, "longitude": 100.58632593601942, "count": 300}’
-c. จง นresponse warehousesทั้งหมดที่ได้จากการ request API มาแสดง โดยประกอบด้วย
-i. ชื่อwarehouse
-ii. Distance
-iii. เวลาเปิดปิด
-    ex.
-       homeDeliveryRange: json['home_delivery_range'] == null ? 0.0 : json['home_delivery_range'].toDouble(),
+```
+
+
+c. จง response warehouses ทั้งหมดที่ได้จากการ request API มาแสดง โดยประกอบด้วย
+- ชื่อwarehouse
+- Distance
+- เวลาเปิดปิด
+    ```dart
+    สำหรับการ parsing fromJson to model หากเจอปัญหาลองแก้ด้วยการ int to double
+    `Dart Error: Unhandled exception: type 'double' is not a subtype of type 'String'`
+    
+    fieldName: json['field_name'] == null ? 0.0 : json['field_name'].toDouble()
+    ```
 
 4. จง วิเคราะห์ว่าจากงานที่ทํามีส่วนไหนที่สามารถปรับปรุงเพื่อเพิ่มประสิทธิภาพได้บ้าง
    - เพิ่มเติมแนะนำให้โจทย์เป็น searchView กับ listView อยู่หน้าเดียวกันเพราะจะสะดวกต่อผู้ใช้งาน และอาจจะให้ค้นด้วย keyword ชื่ิอสถานที่และ get lat,long auto search
@@ -35,18 +42,34 @@ iii. เวลาเปิดปิด
 
 
 
-การเช็ค unit test coverage
+## การเช็ค unit test coverage ##
+ส่วนนี้ยังไม่ได้ refactor ignore file ที่ไม่ต้องเทสออก 
 <img width="1418" alt="Screen Shot 2023-10-23 at 8 34 13 AM" src="https://github.com/ladarat/nugket_warehourse/assets/12799910/117f8631-9723-43aa-8c4d-b627cd7f1580">
 
-```
-# Generate `coverage/lcov.info` file
-flutter test --coverage
+
+```diff
+# Generate `coverage/lcov.info` file 
++ $ flutter test --coverage
 # Generate HTML report
 # Note: on macOS you need to have lcov installed on your system (`brew install lcov`) to use this:
-genhtml coverage/lcov.info -o coverage/html
++ $ genhtml coverage/lcov.info -o coverage/html
 # Open the report
-open coverage/html/index.html
++ $ open coverage/html/index.html
+
 ```
+
+
+
+## สิ่งที่ต้องเพิ่มเติมจากสิ่งที่ทำ
+ ref มาจาก repo https://github.com/hasancse91/flutter_getx_template
+
+ เลือกใช้ getx เพราะคิดว่าเรียนรู้ง่ายสำหรับเริ่มโปรเจคอย่างง่ายได้ดีมี binding view กับ model มาให้
+
+ สิ่งที่ต้องเพิ่มเติมคือ controller ยังไม่เรียบร้อย ต้อง refactor 
+  1. แยก success fail ออกจากกัน 
+  2. fetchNuggets ทำ 3 งาน (show loading, ดึงข้อมูลม hide loading) ต้องเขียนแยกเป็นงานๆ 
+ ส่วน unittest controller ยังไม่ได้ทดสอบลำดับการ observe ต้องเพิ่มค่ะ
+
 
 
 
